@@ -6,6 +6,13 @@ class Product extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('product');
+		redirect(base_url('product/list'));
+		
+		// $this->load->view('product');
+	}
+
+	public function list()
+	{
+		$this->load->view('product_list');
 	}
 }
