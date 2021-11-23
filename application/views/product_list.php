@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Pricing example for Bootstrap</title>
+    <title>Algo Studio - Product Listing</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/pricing/">
 
@@ -17,112 +17,80 @@
 
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.0/examples/pricing/pricing.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
 
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-      <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
+      <h5 class="my-0 mr-md-auto font-weight-normal">Algo Studio</h5>
       <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#">Features</a>
-        <a class="p-2 text-dark" href="#">Enterprise</a>
-        <a class="p-2 text-dark" href="#">Support</a>
-        <a class="p-2 text-dark" href="#">Pricing</a>
+        <a class="p-2 text-dark" href="<?php echo base_url('dashboard'); ?>">Dashboard</a>
+        <a class="p-2 text-dark" href="<?php echo base_url('product/listing'); ?>">Products</a>
       </nav>
-      <a class="btn btn-outline-primary" href="#">Sign up</a>
+      <a class="btn btn-outline-primary" href="#"><i class="fa fa-power-off"></i></a>
     </div>
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <h1 class="display-4">Pricing</h1>
-      <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
+      <h1 class="display-4">Products</h1>
+      <p class="lead">The main page of our site which showing the listing of all our products</p>
     </div>
 
     <div class="container">
-      <div class="card-deck mb-3 text-center">
+
+      <?php $counter = 1; ?>
+      <?php foreach ($products as $product) : ?>
+        <?php if ($counter % 3 == 1) : ?>
+          <?php echo '<div class="card-deck mb-3 text-center">'; ?>
+        <?php endif; ?>
         <div class="card mb-4 box-shadow">
           <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Free</h4>
+            <h4 class="my-0 font-weight-normal"><?php echo $product['product_name']; ?></h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+            <h1 class="card-title pricing-card-title"><small class="text-muted">Rp</small> <?php echo number_format($product['product_selling_price'],0,',','.'); ?> <small class="text-muted">,-</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>10 users included</li>
-              <li>2 GB of storage</li>
-              <li>Email support</li>
-              <li>Help center access</li>
+              <li><?php echo $product['product_description']; ?></li>
+              <li>(Stok: <?php echo $product['product_stock']; ?>)</li>
             </ul>
-            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+            <button type="button" class="btn btn-lg btn-block btn-primary">Add to <i class="fa fa-shopping-cart"></i></button>
           </div>
-        </div>
-        <div class="card mb-4 box-shadow">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Pro</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>20 users included</li>
-              <li>10 GB of storage</li>
-              <li>Priority email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-          </div>
-        </div>
-        <div class="card mb-4 box-shadow">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Enterprise</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>30 users included</li>
-              <li>15 GB of storage</li>
-              <li>Phone and email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
-          </div>
-        </div>
-      </div>
+        </div>     
+        <?php if ($counter % 3 == 0) : ?>
+          <?php echo '</div>'; ?>
+        <?php endif; ?>
+        <?php $counter++; ?>
+      <?php endforeach; ?>
 
       <footer class="pt-4 my-md-5 pt-md-5 border-top">
         <div class="row">
           <div class="col-12 col-md">
             <img class="mb-2" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
-            <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+            <small class="d-block mb-3 text-muted">&copy; 23 November 2021</small>
           </div>
           <div class="col-6 col-md">
-            <h5>Features</h5>
+            <h5>Admin</h5>
             <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Cool stuff</a></li>
-              <li><a class="text-muted" href="#">Random feature</a></li>
-              <li><a class="text-muted" href="#">Team feature</a></li>
-              <li><a class="text-muted" href="#">Stuff for developers</a></li>
-              <li><a class="text-muted" href="#">Another one</a></li>
-              <li><a class="text-muted" href="#">Last time</a></li>
+              <li><a class="text-muted" href="#">Dashboard</a></li>
             </ul>
           </div>
           <div class="col-6 col-md">
-            <h5>Resources</h5>
+            <h5>Products</h5>
             <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Resource</a></li>
-              <li><a class="text-muted" href="#">Resource name</a></li>
-              <li><a class="text-muted" href="#">Another resource</a></li>
-              <li><a class="text-muted" href="#">Final resource</a></li>
+              <li><a class="text-muted" href="#">Listing</a></li>
             </ul>
           </div>
           <div class="col-6 col-md">
             <h5>About</h5>
             <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Team</a></li>
-              <li><a class="text-muted" href="#">Locations</a></li>
-              <li><a class="text-muted" href="#">Privacy</a></li>
-              <li><a class="text-muted" href="#">Terms</a></li>
+              <li><a class="text-muted" href="#">Us</a></li>
             </ul>
           </div>
         </div>
       </footer>
+
     </div>
 
 

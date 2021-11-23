@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Product extends CI_Controller
 {
+	function __construct()
+	{
+        parent::__construct();
+        $this->load->model('product_model', 'product');
+    }
 
 	public function index()
 	{
@@ -13,6 +18,11 @@ class Product extends CI_Controller
 
 	public function listing()
 	{
-		$this->load->view('product_list');
+		$products = $this->product->load();
+		
+		$data['products'] = $products;
+		// print_r($data);die;
+
+		$this->load->view('product_list', $data);
 	}
 }

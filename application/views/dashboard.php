@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Algo Studio - Test Web Developer</title>
+    <title>Algo Studio - Dashboard Panel</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
 
@@ -43,7 +43,13 @@
 
           </div>
 
-          <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+          <div class="row">
+            <div class="col">
+              <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+            </div>
+            <div class="col"></div>
+          </div>
+          
 
           <h2>Section title</h2>
           <div class="table-responsive">
@@ -196,7 +202,7 @@
     <script>
       var ctx = document.getElementById("myChart");
       var myChart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
           labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
           datasets: [{
