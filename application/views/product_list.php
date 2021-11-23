@@ -30,7 +30,7 @@
         <a class="p-2 text-dark" href="<?php echo base_url('dashboard'); ?>">Dashboard</a>
         <a class="p-2 text-dark" href="<?php echo base_url('product/listing'); ?>">Products</a>
       </nav>
-      <a class="btn btn-outline-primary" href="#"><i class="fa fa-power-off"></i></a>
+      <a class="btn btn-outline-primary" title="..." href="#"><i class="fa fa-power-off"></i></a>
     </div>
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -73,13 +73,13 @@
           <div class="col-6 col-md">
             <h5>Admin</h5>
             <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Dashboard</a></li>
+              <li><a class="text-muted" href="<?php echo base_url('dashboard'); ?>">Dashboard</a></li>
             </ul>
           </div>
           <div class="col-6 col-md">
             <h5>Products</h5>
             <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Listing</a></li>
+              <li><a class="text-muted" href="<?php echo base_url('product/listing'); ?>">Listing</a></li>
             </ul>
           </div>
           <div class="col-6 col-md">

@@ -28,7 +28,7 @@
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#"><i class="fa fa-power-off"></i></a>
+          <a class="nav-link" title="ke Daftar Produk" href="<?php echo base_url('product/listing'); ?>"><i class="fa fa-power-off"></i></a>
         </li>
       </ul>
     </nav>
