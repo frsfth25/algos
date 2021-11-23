@@ -28,7 +28,7 @@ class Product_model extends CI_Model
 
                 $this->db->select('sum(r_trx_dtl.trx_dtl_quantity) AS trx_total_quantity');
                 $this->db->from('r_trx_dtl');
-                $this->db->like('trx_dtl_created', 'date("$date")');      
+                $this->db->like('trx_dtl_created', $date);
                 // $this->db->group_by('trx_dtl_id');
         
                 $query=$this->db->get();
@@ -43,7 +43,7 @@ class Product_model extends CI_Model
                 // array_push($stats, $date);   
             }
         }
-        print_r($stats); die;
+        // print_r($stats); die;
         return $stats;
     }
 

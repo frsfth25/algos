@@ -100,6 +100,7 @@
     <!-- Graphs -->
     <?php //echo date('d'); ?>
     <?php $dates = array(); ?>
+    <?php $stats = $outstats; ?>
     <?php for ($i=1; $i<=date('d'); $i++): ?>
       <?php array_push($dates, $i); ?>
     <?php endfor; ?>
@@ -110,9 +111,9 @@
       var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          labels: <?php echo json_encode($dates); ?>,
           datasets: [{
-            data: [5, 3, 1, 2, 4, 0, 8],
+            data: <?php echo json_encode($stats); ?>,
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#007bff',
